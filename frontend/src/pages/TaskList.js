@@ -7,6 +7,7 @@ Modal.setAppElement('#root');
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [newTask, setNewTask] = useState({ title: '', description: '' });
 
@@ -15,9 +16,11 @@ function TaskList() {
     axios.get('http://localhost:3001/tasks?family_id=1')
       .then(response => {
         setTasks(response.data);
+        setLoading(false);
       })
       .catch(error => {
         console.error('Error fetching tasks', error);
+        setLoading(false);
       });
   }, []);
 
@@ -47,6 +50,23 @@ function TaskList() {
       console.error('Error creating task', error);
     });
   };
+
+  // Function to handle updating task status
+  const handleUpdateStatus = (id, status) => {
+    axios.put(`http://localhost:3001/tasks/${id}`, { status })
+      .then(response => {
+        const updatedTask = response.data[0];
+        setTasks(tasks.map(task => task.id === id ? updatedTask : task));
+      })
+      .catch(error => {
+        console.error('Error updating task status', error);
+      });
+  };
+
+  // Display a loading state if tasks are still being fetched
+  if (loading) {
+    return <div>Loading tasks...</div>;
+  }
 
   return (
     <div>
@@ -82,7 +102,10 @@ function TaskList() {
         <h2>To-Do</h2>
         <ul>
           {categorizeTasks('to-do').map(task => (
-            <li key={task.id}>{task.name}: {task.description}</li>
+            <li key={task.id}>
+              {task.name}: {task.description}
+              <button onClick={() => handleUpdateStatus(task.id, 'in-progress')}>Start</button>
+            </li>
           ))}
         </ul>
       </div>
@@ -91,7 +114,10 @@ function TaskList() {
         <h2>In-Progress</h2>
         <ul>
           {categorizeTasks('in-progress').map(task => (
-            <li key={task.id}>{task.name}: {task.description}</li>
+            <li key={task.id}>
+              {task.name}: {task.description}
+              <button onClick={() => handleUpdateStatus(task.id, 'completed')}>Complete</button>
+            </li>
           ))}
         </ul>
       </div>
