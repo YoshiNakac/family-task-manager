@@ -1,30 +1,34 @@
-//import './App.css';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import Schedule from './pages/Schedule';
+import TaskList from './pages/TaskList';
+import Messages from './pages/Messages';
+import Profile from './pages/Profile';
 
 function App() {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://localhost:3001/tasks?family_id=1')
-      .then(response => {
-        setTasks(response.data);
-      })
-      .catch(error => {
-        console.error('There was an error fetching the tasks!', error);
-      });
-  }, []);
-
   return (
-    <div className="App">
-      <h1>Family Task Manager</h1>
-      <ul>
-        {tasks.map(task => (
-          <li key={task.id}>{task.name}: {task.status}</li>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <div className="App">
+        <nav>
+          <ul>
+            <li><Link to="/schedule">Schedule</Link></li>
+            <li><Link to="/task-list">Task List</Link></li>
+            <li><Link to="/messages">Messages</Link></li>
+            <li><Link to="/profile">Profile</Link></li>
+          </ul>
+        </nav>
+        
+        <Switch>
+          <Route path="/schedule" component={Schedule} />
+          <Route path="/task-list" component={TaskList} />
+          <Route path="/messages" component={Messages} />
+          <Route path="/profile" component={Profile} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
+
