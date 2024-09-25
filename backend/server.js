@@ -33,3 +33,24 @@ app.get('/tasks', async (req, res) => {
   res.status(200).json(data);
 });
 
+// POST /tasks
+app.post('/tasks', async (req, res) => {
+  const { family_id, name, description } = req.body;
+
+  if (!family_id || !name) {
+    return res.status(400).json({ error: 'Family ID and Task Name are required' });
+  }
+
+  const { data, error } = await supabase
+    .from('Tasks')
+    .insert([{ family_id, name, description }]);
+
+  if (error) {
+    return res.status(500).json({ error: error.message });
+  }
+
+  res.status(201).json(data);
+});
+
+
+
