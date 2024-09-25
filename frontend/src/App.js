@@ -6,7 +6,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/tasks?family_id=1')
+    axios.get('http://localhost:3001/tasks?family_id=1')
       .then(response => {
         setTasks(response.data);
       })
