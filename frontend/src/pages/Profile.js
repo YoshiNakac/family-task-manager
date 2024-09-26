@@ -1,14 +1,14 @@
 import React from 'react';
 
-function Schedule() {
+function Profile() {
   return (
     <div>
-      <h1>Schedule</h1>
+      <h1>Profile</h1>
       <p>This is the Profiles page where users view their profile.</p>
     </div>
   );
 }
 
-export default Schedule;
+export default Profile;
 
 
