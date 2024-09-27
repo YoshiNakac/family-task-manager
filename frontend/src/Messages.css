@@ -1,0 +1,94 @@
+/* Messages Page Styles */
+.messages-page {
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+.messages-header {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+}
+
+.messages-header h1 {
+  font-size: 1.8rem;
+  color: #0088cc;
+}
+
+/* Message Cards Container */
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Individual Message Card */
+.message-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.message-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.message-card-content {
+  flex-grow: 1;
+}
+
+.message-card-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.service-name {
+  color: #0088cc;
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.last-message {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Timestamp Styling */
+.message-timestamp {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Mobile-First Adjustments */
+@media (max-width: 768px) {
+  .messages-page {
+    padding: 10px;
+  }
+
+  .message-card {
+    padding: 10px;
+  }
+
+  .message-card-content h3 {
+    font-size: 1rem;
+  }
+
+  .service-name {
+    font-size: 0.9rem;
+  }
+
+  .last-message {
+    font-size: 0.8rem;
+  }
+
+  .message-timestamp {
+    font-size: 0.75rem;
+  }
+}
