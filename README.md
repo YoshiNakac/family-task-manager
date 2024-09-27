@@ -26,26 +26,32 @@ Welcome to the **Family Task Manager**! This mobile-first web application helps 
 
 ---
 
----
+## Setup Instructions
 
-## Required Libraries
+### 1. Clone the Repository
+Start by cloning the repository to your local machine:
 
-### Backend Dependencies
-- **express**: Lightweight Node.js web framework
-- **supabase-js**: JavaScript library for Supabase interaction
-- **dotenv**: Environment variable management
+```bash 
+git clone https://github.com/YoshiNakac/family-task-manager.git
+```
 
-### Frontend Dependencies
-- **react**: JavaScript library for building user interfaces
-- **react-dom**: Rendering React components
-- **react-router-dom**: Routing between pages
-- **axios**: HTTP requests handling
-- **supabase-js**: JavaScript library for Supabase interaction
-
-To install all required libraries for both frontend and backend, run:
-
+### 2. Setup Backend
 ```bash
 cd backend
 npm install
+```
+
+### 3. Setup Environment Variables in .env
+SUPABASE_URL=https://lwklryqzttkgnxtrjetz.supabase.co
+SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx3a2xyeXF6dHRrZ254dHJqZXR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjcyNDQ3NDgsImV4cCI6MjA0MjgyMDc0OH0.potlyTt-9WJ0xqJrr8_0sMZ0ZZwRxnqjdH5z-FzoHQg
+
+### 4. Run Backend Server
+npm start
+
+### 5. Setup Frontend
 cd ../frontend
 npm install
+
+
+### 6. Run Frontend
+npm start
