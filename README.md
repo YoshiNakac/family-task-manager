@@ -1,48 +1,51 @@
 # Family Task Manager
 
-## Project Overview
-The **Family Task Manager** is a collaborative tool that allows families to manage tasks together. It features task categorization, sample task suggestions, and a responsive mobile-first design. Built using React for the frontend and Node.js with Supabase for the backend, it offers a seamless user experience.
+Welcome to the **Family Task Manager**! This mobile-first web application helps families organize, manage, and complete various tasks, as well as communicate with service providers. The project includes several features such as task management, a messaging system, and profile management, built with a clean, modern design.
+
+---
 
 ## Features
-- **Task List**: Organize tasks into three categories: To-Do, In-Progress, and Completed.
-- **Sample Tasks**: Users can view and opt into suggested tasks via the Schedule page.
-- **Add New Task**: A modal popup enables users to create new tasks by providing a title and description.
-- **Mobile-First Design**: Optimized for mobile devices but also fully functional on desktop.
-- **Profile and Messages Tabs**: Placeholder tabs for future profile management and messaging functionality.
+- **Task List View**: View tasks under categories like "To-do," "In-progress," and "Completed."
+- **Task Details**: View detailed information for each task and manage task statuses.
+- **Suggested Tasks**: See a list of tasks suggested for the family and easily add them to the task list.
+- **Profile Management**: Edit personal information such as name, email, password, and country/region.
+- **Messages**: View and manage conversations with service providers.
+
+---
 
 ## Tech Stack
-- **Frontend**: React, React Router, Axios.
-- **Backend**: Node.js, Express, Supabase (PostgreSQL).
-- **Database**: Supabase with Row-Level Security (RLS) for secure data access.
+- **Frontend**: React (with functional components and hooks)
+- **Backend**: Node.js with Express
+- **Database**: Supabase (PostgreSQL)
+- **Styling**: CSS (custom styles for mobile-first responsiveness)
+- **Libraries**:
+  - `axios`: for handling HTTP requests
+  - `react-router-dom`: for routing between different pages
+  - `dotenv`: for environment variable management
+  - `supabase-js`: for database interaction
 
-## Installation and Setup
+---
 
-### Backend Setup
-1. Clone the repository and navigate to the `backend` folder:
-   ```bash
-   git clone https://github.com/YoshiNakac/family-task-manager.git
-   cd family-task-manager/backend
+---
 
+## Required Libraries
 
-2. Install required dependencies:
-  npm install
+### Backend Dependencies
+- **express**: Lightweight Node.js web framework
+- **supabase-js**: JavaScript library for Supabase interaction
+- **dotenv**: Environment variable management
 
+### Frontend Dependencies
+- **react**: JavaScript library for building user interfaces
+- **react-dom**: Rendering React components
+- **react-router-dom**: Routing between pages
+- **axios**: HTTP requests handling
+- **supabase-js**: JavaScript library for Supabase interaction
 
-3. Create a .env file in the backend folder with the following Supabase credentials:
+To install all required libraries for both frontend and backend, run:
 
-4. Start the backend server:
-  node server.js
-
-The backend will be running on http://localhost:3001
-
-### Frontend Setup
-1. Navigate to the frontend folder:
-  cd ../frontend
-
-2. Install required dependencies:
-  npm install
-
-3. Start the frontend development server:
-  npm start
-
-The backend will be running on http://localhost:3000
+```bash
+cd backend
+npm install
+cd ../frontend
+npm install
